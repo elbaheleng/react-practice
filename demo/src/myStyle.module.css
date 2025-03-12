@@ -1,0 +1,20 @@
+/* for few components */
+.reactStyle{
+    font-size: 40px ;
+    color: green;
+    font-style: italic;
+}
+.cssStyle{
+    color: rgb(117, 117, 175);
+}
+.button{
+    background-color: rgb(76, 76, 150);
+    border-radius: 5px ;
+    padding: 20px;
+}
+.button:hover{
+    background-color: violet;
+    border-radius: 5px ;
+    padding: 20px;
+}
+
