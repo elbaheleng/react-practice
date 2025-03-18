@@ -1,3 +1,9 @@
 #displ{
     background-color: rgb(65, 87, 7);
 }
+#heading{
+    font-family: "Smooch Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
