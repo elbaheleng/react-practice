@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 function Landing() {
   return (
@@ -12,7 +13,7 @@ function Landing() {
           <Col md={6}>
             <h3>Welcome to <span className='text-warning'>Media Player</span></h3>
             <p className='mt-4' style={{ fontSize: '18px', textAlign: 'justify' }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis illo quaerat excepturi maxime autem, perspiciatis explicabo incidunt nisi a laudantium harum nemo sapiente laboriosam ut assumenda consequuntur labore velit quia.</p>
-            <button className='mt-3 btn btn-warning'>Get Started</button>
+            <Link to={'/home'}><button className='mt-3 btn btn-warning'>Get Started</button></Link>
           </Col>
           <Col md={6} className='d-flex justify-content-center mt-5 mt-md-3'>
             <img src="https://i.pinimg.com/originals/33/a4/6f/33a46f727dbe790d436616a1f56fce9c.gif" alt="no image" className='w-50' />
@@ -40,7 +41,7 @@ function Landing() {
               </Col>
               <Col md={4}>
                 <Card className='w-100 p-3 mt-4 mt-md-0' style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src="https://media2.giphy.com/media/Wxc9iA6vBWMP9jbMjn/200w.gif?cid=6c09b952lj1bea8gn2il2gin2exj0jqm96jlkbfd3q999s5v&ep=v1_gifs_search&rid=200w.gif&ct=g" height={'250px'} />
+                  <Card.Img variant="top" src="https://cdn.dribbble.com/userupload/42259831/file/original-7824f335d663467e4c7a3313f3e20cd8.gif" height={'250px'} />
                   <Card.Body>
                     <Card.Title>Card Title</Card.Title>
                     <Card.Text>

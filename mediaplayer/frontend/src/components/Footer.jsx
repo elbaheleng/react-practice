@@ -1,12 +1,12 @@
 
 import React from 'react'
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVideo } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faXTwitter, faFacebook, faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
@@ -22,15 +22,15 @@ function Footer() {
           <Col md={2}>
             <h5 className='mt-1'>Links</h5>
             <div className='d-flex flex-column'>
-              <a className='mb-3'>Landing Page</a>
-              <a className='mb-3'>Home Page</a>
-              <a className='mb-3'>Watch History</a>
+            <Link to={'/'}><p className='mb-3'>Landing Page</p></Link>
+            <Link to={'/home'}><p className='mb-3'>Home Page</p></Link>
+            <Link to={'/watchhistory'}> <p className='mb-3'>Watch History</p></Link>
             </div>
           </Col>
           <Col md={2}>
             <h5 className='mt-1'>Guides</h5>
             <div className='d-flex flex-column'>
-              <p className='mb-3'>React</p>
+             <p className='mb-3'>React</p>
               <p className='mb-3'>React Bootstrap</p>
               <p className='mb-3'>Bootswatch</p>
             </div>
