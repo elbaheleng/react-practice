@@ -15,7 +15,7 @@ function Add() {
 
     return (
         <>
-            <button className='btn bg-transparent text-white fs-5' onClick={handleShow} >Upload New Video <FontAwesomeIcon icon={faCloudArrowUp} /></button>
+            <button className='btn bg-transparent text-white fs-5' onClick={handleShow} > <div className=' d-flex justify-content-center align-items-center'><span className='d-none d-md-flex me-2'> Upload New Video </span> <FontAwesomeIcon icon={faCloudArrowUp} /></div></button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

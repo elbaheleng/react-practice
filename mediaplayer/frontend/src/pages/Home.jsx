@@ -9,9 +9,9 @@ import Category from '../components/Category'
 function Home() {
   return (
     <>
-    <div className="container d-flex justify-content-between mt-5">
+    <div className="container d-flex justify-content-between align-items-center">
       <Add />
-      <Link to={'/watchhistory'} style={{textDecoration : "none"}} className='text-white'><h5>Watch History <FontAwesomeIcon icon={faClockRotateLeft} /></h5> 
+      <Link to={'/watchhistory'} style={{textDecoration : "none"}} className='text-white'><h5 className=' d-flex justify-content-center align-items-center'> <span className='d-none d-md-flex me-2'> Watch History </span> <FontAwesomeIcon icon={faClockRotateLeft} /></h5> 
       </Link>
     </div>
     <div className="container-fluid">

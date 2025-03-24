@@ -1,17 +1,11 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 
 function Header() {
   return (
-    <Container>
-      <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand >LiveFit – Instant BMI feedback for a healthier lifestyle.
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
-    </Container>
+        <>
+          <h1  className='ms-2'>LiveFit</h1>
+          <p className='ms-5 fs-4'>Instant BMI feedback for a healthier lifestyle.</p>
+        </>
   )
 }
 
