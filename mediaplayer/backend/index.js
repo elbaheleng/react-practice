@@ -11,7 +11,7 @@ const middleware = jsonserver.defaults()
 const routes = jsonserver.router('db.json')
 
 mediaPlayerServer.use(middleware)
-mediaPlayerServer.use(use)
+mediaPlayerServer.use(routes)
 
 // set server port
 PORT = 4001 || process.env.PORT //process.env.PORT will work only when deployed

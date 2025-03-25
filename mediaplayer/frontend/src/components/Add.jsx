@@ -6,17 +6,44 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import { videoAddApi } from '../services/allapis';
 
 function Add() {
     const [show, setShow] = useState(false);
+    const [videoDetails, setvideoDetails] = useState({
+        caption : '',
+        image : '',
+        embedLink : ''
+    })
 
-    const handleClose = () => setShow(false);
+const handleReset = () => {
+    setvideoDetails({
+        caption : '',
+        image : '',
+        embedLink : ''
+    })
+}
+
+const handleUpload = async () => {
+const {caption, image, embedLink} = videoDetails //object destructuring
+if (!caption || !image || !embedLink){ 
+    alert('Please fill the form completely')
+} else {
+    const result = await videoAddApi(videoDetails)
+    console.log(result);
+    
+}
+}
+
+    const handleClose = () => {
+        handleReset()
+        setShow(false);
+    }
     const handleShow = () => setShow(true);
 
     return (
         <>
             <button className='btn bg-transparent text-white fs-5' onClick={handleShow} > <div className=' d-flex justify-content-center align-items-center'><span className='d-none d-md-flex me-2'> Upload New Video </span> <FontAwesomeIcon icon={faCloudArrowUp} /></div></button>
-
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title className='text-warning'><FontAwesomeIcon icon={faFilm} className='me-2' />Upload Video</Modal.Title>
@@ -25,22 +52,22 @@ function Add() {
                     <p className='fs-6'>Please fill the following details</p>
                     <Form className='border rounded p-2 mt-2'>
                         <Form.Group className="mb-3 mt-2" controlId="videocaption">
-                            <Form.Control type="text" placeholder="Video Caption" />
+                            <Form.Control type="text" placeholder="Video Caption" value={videoDetails.caption} onChange={(e) => setvideoDetails({...videoDetails, caption : e.target.value})}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="videoimage">
-                            <Form.Control type="text" placeholder="Video Image" />
+                            <Form.Control type="text" placeholder="Video Image" value={videoDetails.image}  onChange={(e) => setvideoDetails({...videoDetails, image : e.target.value})} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="videourl">
-                            <Form.Control type="text" placeholder="Video Url" />
+                            <Form.Control type="text" placeholder="Video Url" value={videoDetails.embedLink}  onChange={(e) => setvideoDetails({...videoDetails, embedLink : e.target.value})}/>
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={handleReset}>
                         Reset
                     </Button>
-                    <Button variant="primary" className='btn-warning' onClick={handleClose}>
+                    <Button variant="primary" className='btn-warning' onClick={handleUpload}>
                         Upload
                     </Button>
                 </Modal.Footer>
