@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import  "/src/gauge.js"
 
 function Display(props) {
     useEffect(() => {
@@ -58,7 +57,7 @@ function Display(props) {
     });
     return (
         <>
-            <div id="preview-textfield"></div>
+            <div id="preview-textfield" style={{opacity : "0"}}></div>
             <canvas id="demo" className='w-100'></canvas>
         </>
     )

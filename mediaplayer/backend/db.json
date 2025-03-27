@@ -1,5 +1,48 @@
 {
-    "videos" : [],
-    "history" : [],
-    "category" : []
+  "videos": [
+    {
+      "caption": "asjfb",
+      "image": "hsvd",
+      "embedLink": "https://www.youtube.com/embed/vQz82N1PIPo",
+      "id": 1
+    },
+    {
+      "caption": "Empuran",
+      "image": "https://assetscdn1.paytm.com/images/cinema/L2-745cb8f0-0494-11f0-9a36-f5aa0783f278.jpg",
+      "embedLink": "https://www.youtube.com/embed/YtYAu31_YJU",
+      "id": 2
+    },
+    {
+      "caption": "Om Shanthi Oshana",
+      "image": "https://upload.wikimedia.org/wikipedia/en/a/ae/Ohm_Shanthi_Oshaana_%282014%29_-_Poster.jpg",
+      "embedLink": "https://www.youtube.com/embed/WClb2WeHqNk",
+      "id": 3
+    },
+    {
+      "caption": "Manichithrathazhu",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlvrwhp9YR160Y7opz0T4bJMk1PUv7qQ9s7A&s",
+      "embedLink": "https://www.youtube.com/embed/m95cByLJc8I",
+      "id": 4
+    },
+    {
+      "caption": "Classmates",
+      "image": "https://m.media-amazon.com/images/M/MV5BZDA4MDc0ZDItNmFmYi00MWFhLTliNjgtNGZjNDUyMzZjOTcxXkEyXkFqcGc@._V1_.jpg",
+      "embedLink": "https://www.youtube.com/embed/v8FKqfTzIzI",
+      "id": 5
+    },
+    {
+      "caption": "Niram",
+      "image": "https://m.media-amazon.com/images/M/MV5BZDU3NmI4MTMtMTFkNy00NzU3LWI3YzktMGYwOTZhMTY3NTVkXkEyXkFqcGc@._V1_.jpg",
+      "embedLink": "https://www.youtube.com/embed/Eo9hZz3oizk",
+      "id": 6
+    },
+    {
+      "caption": "Swapnakoodu",
+      "image": "https://m.media-amazon.com/images/M/MV5BYWUxNjlmMWMtYmE2Yy00ZDVhLWFlMjYtMWEwZWNhZTJlZjQwXkEyXkFqcGc@._V1_.jpg",
+      "embedLink": "https://www.youtube.com/embed/Pg5SWsBgKnk",
+      "id": 7
+    }
+  ],
+  "history": [],
+  "category": []
 }

@@ -6,14 +6,11 @@ import Input from './assets/components/Input'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
     <Header />
     <Input />
     <Footer/>
-      
     </>
   )
 }

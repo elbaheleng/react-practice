@@ -14,7 +14,7 @@ function Category() {
   const handleShow = () => setShow(true);
   return (
     <>
-      <h5>Category</h5>
+      <h5 className='mt-3'>Category</h5>
       <button className='btn btn-warning w-100 mt-3' onClick={handleShow}>Add Category</button>
       <div className='d-flex flex-column'>
         <div>

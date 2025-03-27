@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { videoAddApi } from '../services/allapis';
+import {ToastContainer, toast} from "react-toastify"
 
 function Add() {
     const [show, setShow] = useState(false);
@@ -29,8 +30,39 @@ const {caption, image, embedLink} = videoDetails //object destructuring
 if (!caption || !image || !embedLink){ 
     alert('Please fill the form completely')
 } else {
-    const result = await videoAddApi(videoDetails)
-    console.log(result);
+    if (embedLink.startsWith("https://youtu.be/")){
+        //https://youtu.be/vQz82N1PIPo?feature=shared
+        let link = `https://www.youtube.com/embed/${embedLink.slice(17,28)}`
+        console.log(link);
+        const result = await videoAddApi({caption, image, embedLink:link})
+        console.log(result);
+        if (result.status >= 200 && result.status < 300){
+            toast.success("Video added successfully")
+            handleClose()
+        } else {
+            toast.error("Something went wrong. Couldn't add video.")
+            handleReset()
+        }
+        
+    } else {
+        //https://www.youtube.com/watch?v=vQz82N1PIPo
+        let link = `https://www.youtube.com/embed/${embedLink.slice(32,43)}`
+        console.log(link);
+        const result = await videoAddApi({caption, image, embedLink:link})
+        console.log(result);
+        if (result.status >= 200 && result.status < 300){
+            toast.success("Video added successfully")
+            handleClose()
+        } else {
+            toast.error("Something went wrong. Couldn't add video.")
+            handleReset()
+        }
+
+    }
+    // const result = await videoAddApi(videoDetails)
+    // console.log(result);
+
+    //<iframe width="853" height="480" src="https://www.youtube.com/embed/vQz82N1PIPo" title="Creative Woodworking Craftsman Wooden Furniture || TV Stand Design Furniture Making" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     
 }
 }
@@ -72,6 +104,8 @@ if (!caption || !image || !embedLink){
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+            <ToastContainer position = 'top-center' theme="colored" autoClose={5000}/>
         </>
     )
 }
