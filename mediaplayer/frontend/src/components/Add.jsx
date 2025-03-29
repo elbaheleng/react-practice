@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import { videoAddApi } from '../services/allapis';
 import {ToastContainer, toast} from "react-toastify"
 
-function Add() {
+function Add({setAddVideoStatus}) {
     const [show, setShow] = useState(false);
     const [videoDetails, setvideoDetails] = useState({
         caption : '',
@@ -39,6 +39,7 @@ if (!caption || !image || !embedLink){
         if (result.status >= 200 && result.status < 300){
             toast.success("Video added successfully")
             handleClose()
+            setAddVideoStatus(result.data)
         } else {
             toast.error("Something went wrong. Couldn't add video.")
             handleReset()
@@ -53,6 +54,8 @@ if (!caption || !image || !embedLink){
         if (result.status >= 200 && result.status < 300){
             toast.success("Video added successfully")
             handleClose()
+            setAddVideoStatus(result.data)
+
         } else {
             toast.error("Something went wrong. Couldn't add video.")
             handleReset()

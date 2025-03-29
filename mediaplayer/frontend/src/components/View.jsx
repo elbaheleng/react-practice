@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Videocard from './Videocard'
 import { allVideosget } from '../services/allapis';
 
-function View() {
+function View({addVideoStatus}) {
 
   const [allVideos, setAllVideos] = useState([])
+  const [deleteVideoStatus, setDeleteVideoStatus] = useState({})
   const getAllVideos = async () => {
     const result = await allVideosget()
     //console.log(result);
@@ -16,7 +17,7 @@ function View() {
 
   useEffect(() => {
     getAllVideos()
-  }, [])
+  }, [addVideoStatus, deleteVideoStatus])
   return (
     <>
       <h4 className='mt-3'>All Videos</h4>
@@ -24,7 +25,7 @@ function View() {
         <div className="row">{
           allVideos?.length > 0 ? allVideos.map((item, index) => (
             <div className="col-md-3 p-2" key = {index}>
-              <Videocard video={item} />
+              <Videocard video={item} setDeleteVideoStatus={setDeleteVideoStatus} />
             </div>
           )) : <div className='text-center'>
             <img className='w-25' src="https://png.pngtree.com/png-clipart/20230405/original/pngtree-no-video-recording-sign-png-image_9026843.png" alt="no videos" />
