@@ -108,7 +108,7 @@ if (!caption || !image || !embedLink){
                 </Modal.Footer>
             </Modal>
 
-            <ToastContainer position = 'top-center' theme="colored" autoClose={5000}/>
+            <ToastContainer position = 'top-center' theme="colored" autoClose={3000}/>
         </>
     )
 }

@@ -28,7 +28,7 @@ function Watchhistory() {
 
   useEffect(() => {
     getHistory()
-  }, [deleteWatchHistoryStatus])
+  }, [deleteWatchHistoryStatus, watchHistory])
   return (
     <>
       <div className='container d-flex justify-content-between align-items-center mt-5'>
@@ -52,7 +52,7 @@ function Watchhistory() {
          <tr key = {index}>
          <td className='text-center'>{index + 1}</td>
          <td className='text-center'>{item?.caption}</td>
-         <td className='text-center'><Link to={''}> {item?.url}</Link></td>
+         <td className='text-center'><Link to={`${item?.url}`} target = '_blank'> {item?.url}</Link></td>
          <td className='text-center'>{item?.time}</td>
          <td className='text-center'><Button variant="danger" onClick={() => deleteVideoHistory(item?.id)}><FontAwesomeIcon icon={faTrashCan} /></Button></td>
        </tr>
@@ -60,7 +60,7 @@ function Watchhistory() {
         </tbody>
       </table>    : <div className='text-center'>
         <img className='w-25' src="https://png.pngtree.com/png-clipart/20230405/original/pngtree-no-video-recording-sign-png-image_9026843.png" alt="no videos" />
-        <h4>No videos to show</h4>
+        <h4 className='text-danger text-center'>History Cleared</h4>
       </div>
       }
       </div >

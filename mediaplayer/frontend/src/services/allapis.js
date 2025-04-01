@@ -30,3 +30,8 @@ export const getVideoHistoryApi = async () => {
 export const deleteVideoHistoryApi = async (id) => {
     return await commonApi('DELETE', `${serverurl}/history/${id}`,{})
 }
+
+// add category
+export const addCategoryApi = async (reqBody) => {
+    return await commonApi('POST', `${serverurl}/category`,reqBody)
+}
