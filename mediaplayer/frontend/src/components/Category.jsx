@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
@@ -6,13 +6,17 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Videocard from "./Videocard"
-import { addCategoryApi } from '../services/allapis';
+import { addCategoryApi, deleteCategoryApi, getAllCategoryApi } from '../services/allapis';
 import { ToastContainer, toast } from "react-toastify"
 
 
 function Category() {
   const [show, setShow] = useState(false);
   const [categoryName, setCategoryName] = useState("")
+  const [allCategory, setAllCategory] = useState([])
+  const [addCategoryStatus, setAddCategoryStatus] = useState({})
+  const [deleteCategoryStatus, setDeleteCategoryStatus] = useState({})
+
 
   const handleClose = () => {
     setShow(false);
@@ -35,6 +39,7 @@ function Category() {
       if (result.status >= 200 && result.status < 300) {
         toast.success("Category added successfully")
         handleClose()
+        setAddCategoryStatus(result.data)
       } else {
         toast.error("Something went wrong. Couldn't add category.")
         handleReset()
@@ -44,28 +49,69 @@ function Category() {
     }
 
   }
+
+  const getAllCategory = async () => {
+    let result = await getAllCategoryApi()
+    //console.log(result);
+    if (result.status >= 200 && result.status < 300) {
+      setAllCategory(result.data)
+    }
+
+  }
+
+  //console.log(allCategory);
+
+  const deleteCategory = async (id) => {
+    let result = await deleteCategoryApi(id)
+    if (result.status >= 200 && result.status < 300) {
+      setDeleteCategoryStatus(result.data)
+    }
+
+  }
+
+  const videoOver = (e) => {
+    e.preventDefault() // to prevent refresh, to prevent data loss
+  }
+
+  const videoDrop = (e, categoryDetails) => {
+    //console.log(e);
+    //console.log(categoryDetails);
+    const videoDetails = JSON.parse (e.dataTransfer.getData("videoDetails"))
+    //console.log(videoDetails);
+    if (categoryDetails.allVideos.find((item) => item.id == videoDetails.id)){
+      toast.error("Video already in this category")
+    } else {
+      categoryDetails.allVideos.push(videoDetails)
+    }
+  
+    console.log(categoryDetails);
+  }
+
+
+  useEffect(() => {
+    getAllCategory()
+  }, [addCategoryStatus, deleteCategoryStatus])
   return (
     <>
       <h5 className='mt-3'>Category</h5>
       <button className='btn btn-warning w-100 mt-3' onClick={handleShow}>Add Category</button>
-      <div className='d-flex flex-column'>
-        <div>
-          <div className='border rounded p-2 mt-3'>
-            <div className='d-flex justify-content-between'>
-              <p>Tamil Songs</p>
-              <button className='btn btn-danger'><FontAwesomeIcon icon={faTrashCan} /></button>
-            </div>
-            <div>
-              {/* <Videocard /> */}
+      {(allCategory?.length > 0) ?
+        allCategory.map((item, index) => (
+          <div className='d-flex flex-column' key={index} droppable="true" onDragOver={(e) => videoOver(e)} onDrop={(e) => videoDrop(e, item)}>
+            <div className='border rounded p-2 mt-3'>
+              <div className='d-flex justify-content-between'>
+                <p>{item?.category}</p>
+                <button className='btn btn-danger' onClick={() => deleteCategory(item?.id)}><FontAwesomeIcon icon={faTrashCan} /></button>
+              </div>
+              <div>
+                {/* <Videocard /> */}
+              </div>
             </div>
           </div>
-          <div className='d-flex justify-content-between border rounded p-2 mt-3'>
-            <p>Malayalam Songs</p>
-            <button className='btn btn-danger'><FontAwesomeIcon icon={faTrashCan} /></button>
-          </div>
-        </div>
-
-      </div>
+        ))
+        :
+        <p className='text-danger text-center mt-4'>No Category added yet</p>
+      }
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -88,7 +134,7 @@ function Category() {
         </Modal.Footer>
       </Modal>
 
-      <ToastContainer position='top-center' theme="colored" autoClose={3000} />
+      <ToastContainer position='top-center' theme="colored" autoClose={2000} />
 
     </>
   )

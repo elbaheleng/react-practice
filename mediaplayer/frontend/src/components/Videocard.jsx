@@ -24,6 +24,13 @@ function Videocard({ video, setDeleteVideoStatus }) { // to destructure, give th
     }
   }
 
+  const videoDrag = (e, video) =>{
+console.log(e);
+console.log(video);
+e.dataTransfer.setData("videoDetails", JSON.stringify(video))
+
+  }
+
   const addVideoHistory = async () => {
     let caption = video?.caption
     let url = video?.embedLink
@@ -36,7 +43,7 @@ function Videocard({ video, setDeleteVideoStatus }) { // to destructure, give th
   }
   return (
     <>
-      <Card style={{ width: '100%' }}>
+      <Card style={{ width: '100%' }} draggable onDragStart={(e)=>{videoDrag(e, video)}}>
         <Card.Img variant="top" src={video?.image} style={{ height: '300px' }} onClick={handleShow} />
         <Card.Body className='d-flex justify-content-between align-items-center'>
           <Card.Text className='m-0'>{video?.caption}</Card.Text>
