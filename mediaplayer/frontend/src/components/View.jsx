@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Videocard from './Videocard'
 import { allVideosget } from '../services/allapis';
+import { videoAddApi } from '../services/allapis';
 
-function View({addVideoStatus}) {
+function View({ addVideoStatus }) {
 
   const [allVideos, setAllVideos] = useState([])
   const [deleteVideoStatus, setDeleteVideoStatus] = useState({})
+  const [videoAddFromCategory, setVideoAddFromCategory] = useState({})
   const getAllVideos = async () => {
     const result = await allVideosget()
     //console.log(result);
@@ -13,18 +15,31 @@ function View({addVideoStatus}) {
       setAllVideos(result.data)
     }
   }
-  console.log(allVideos);
+  //console.log(allVideos);
+  const videoOver = (e) => {
+    e.preventDefault() // to prevent refresh, to prevent data loss
+  }
+  const videoDrop = async (e) => {
+    const videoDetails = JSON.parse(e.dataTransfer.getData("videoDetails"))
+    if (!allVideos.includes(videoDetails)) {
+      const result = await videoAddApi(videoDetails)
+      if (result.status >= 200 && result.status < 300) {
+        setVideoAddFromCategory(result.data)
+      }
+    }
+
+  }
 
   useEffect(() => {
     getAllVideos()
-  }, [addVideoStatus, deleteVideoStatus])
+  }, [addVideoStatus, deleteVideoStatus, videoAddFromCategory])
   return (
     <>
       <h4 className='mt-3'>All Videos</h4>
-      <div className="container-fluid mt-5">
+      <div className="container-fluid mt-5" droppable="true" onDragOver={(e) => videoOver(e)} onDrop={(e) => videoDrop(e)}>
         <div className="row">{
           allVideos?.length > 0 ? allVideos.map((item, index) => (
-            <div className="col-md-3 p-2" key = {index}>
+            <div className="col-md-3 p-2" key={index}>
               <Videocard video={item} setDeleteVideoStatus={setDeleteVideoStatus} />
             </div>
           )) : <div className='text-center'>

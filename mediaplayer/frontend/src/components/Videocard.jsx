@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { addVideoHistoryApi, deleteVideoApi } from '../services/allapis';
 
-function Videocard({ video, setDeleteVideoStatus }) { // to destructure, give the props name inside // to destructure, give the props name inside {}
+function Videocard({ video, setDeleteVideoStatus, isPresent }) { // to destructure, give the props name inside // to destructure, give the props name inside {}
 
   const [show, setShow] = useState(false);
 
@@ -24,10 +24,10 @@ function Videocard({ video, setDeleteVideoStatus }) { // to destructure, give th
     }
   }
 
-  const videoDrag = (e, video) =>{
-console.log(e);
-console.log(video);
-e.dataTransfer.setData("videoDetails", JSON.stringify(video))
+  const videoDrag = (e, video) => {
+    console.log(e);
+    console.log(video);
+    e.dataTransfer.setData("videoDetails", JSON.stringify(video))
 
   }
 
@@ -37,17 +37,17 @@ e.dataTransfer.setData("videoDetails", JSON.stringify(video))
     const time = new Date()
     const result = new Intl.DateTimeFormat("en-GB", { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }).format(time)
     //console.log(result);
-    const response = await addVideoHistoryApi({caption, url, time : result})
+    const response = await addVideoHistoryApi({ caption, url, time: result })
 
 
   }
   return (
     <>
-      <Card style={{ width: '100%' }} draggable onDragStart={(e)=>{videoDrag(e, video)}}>
-        <Card.Img variant="top" src={video?.image} style={{ height: '300px' }} onClick={handleShow} />
+      <Card style={{ width: '100%' }} draggable onDragStart={(e) => { videoDrag(e, video) }}>
+        {!isPresent && <Card.Img variant="top" src={video?.image} style={{ height: '300px' }} onClick={handleShow} />}
         <Card.Body className='d-flex justify-content-between align-items-center'>
-          <Card.Text className='m-0'>{video?.caption}</Card.Text>
-          <Button variant="danger" onClick={() => deleteVideo(video?.id)}><FontAwesomeIcon icon={faTrashCan} /></Button>
+          <Card.Text className='m-0' >{video?.caption}</Card.Text>
+          {!isPresent && <Button variant="danger" onClick={() => deleteVideo(video?.id)}><FontAwesomeIcon icon={faTrashCan} /></Button>}
         </Card.Body>
       </Card>
 

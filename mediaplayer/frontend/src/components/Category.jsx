@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Videocard from "./Videocard"
-import { addCategoryApi, deleteCategoryApi, getAllCategoryApi } from '../services/allapis';
+import { addCategoryApi, deleteCategoryApi, getAllCategoryApi, updateCategoryApi } from '../services/allapis';
 import { ToastContainer, toast } from "react-toastify"
 
 
@@ -16,6 +16,7 @@ function Category() {
   const [allCategory, setAllCategory] = useState([])
   const [addCategoryStatus, setAddCategoryStatus] = useState({})
   const [deleteCategoryStatus, setDeleteCategoryStatus] = useState({})
+  const [updateStatus, setUpdateStatus] = useState({})
 
 
   const handleClose = () => {
@@ -73,24 +74,47 @@ function Category() {
     e.preventDefault() // to prevent refresh, to prevent data loss
   }
 
-  const videoDrop = (e, categoryDetails) => {
+  const videoDrop = async (e, categoryDetails) => {
     //console.log(e);
     //console.log(categoryDetails);
-    const videoDetails = JSON.parse (e.dataTransfer.getData("videoDetails"))
+    const videoDetails = JSON.parse(e.dataTransfer.getData("videoDetails"))
     //console.log(videoDetails);
-    if (categoryDetails.allVideos.find((item) => item.id == videoDetails.id)){
+    if (categoryDetails.allVideos.find((item) => item.id == videoDetails.id)) {
       toast.error("Video already in this category")
     } else {
       categoryDetails.allVideos.push(videoDetails)
-    }
-  
-    console.log(categoryDetails);
-  }
+      //console.log(categoryDetails);
+      const result = await updateCategoryApi(categoryDetails.id, categoryDetails)
+      //console.log(result);
+      if (result.status >= 200 && result.status < 300) {
+        setUpdateStatus(result.data)
+      }
 
+    }
+
+  }
+const videoFromCategoryDrag = async (e, video, category) => {
+  // console.log(e);
+  // console.log(video);
+  // console.log(category);
+  e.dataTransfer.setData("videoDetails", JSON.stringify(video))
+  let newAllVideos = category.allVideos.filter((item) => item != video)
+  category.allVideos = newAllVideos
+  console.log(category);
+  const result = await updateCategoryApi(category.id, category)
+      //console.log(result);
+      if (result.status >= 200 && result.status < 300) {
+        setUpdateStatus(result.data)
+      }
+
+
+  
+  // e.dataTransfer.setData("categoryDetails", JSON.stringify(category))
+}
 
   useEffect(() => {
     getAllCategory()
-  }, [addCategoryStatus, deleteCategoryStatus])
+  }, [addCategoryStatus, deleteCategoryStatus, updateStatus])
   return (
     <>
       <h5 className='mt-3'>Category</h5>
@@ -103,9 +127,13 @@ function Category() {
                 <p>{item?.category}</p>
                 <button className='btn btn-danger' onClick={() => deleteCategory(item?.id)}><FontAwesomeIcon icon={faTrashCan} /></button>
               </div>
-              <div>
-                {/* <Videocard /> */}
-              </div>
+
+              {item?.allVideos?.map((video, index) => (
+                <div key={index} draggable onDragStart={(e)=>{videoFromCategoryDrag(e, video, item)}} >
+                  <Videocard  video={video} isPresent={true}  />
+                </div>
+              ))}
+
             </div>
           </div>
         ))

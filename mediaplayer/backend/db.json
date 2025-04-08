@@ -1,22 +1,10 @@
 {
   "videos": [
     {
-      "caption": "Empuran",
-      "image": "https://assetscdn1.paytm.com/images/cinema/L2-745cb8f0-0494-11f0-9a36-f5aa0783f278.jpg",
-      "embedLink": "https://www.youtube.com/embed/YtYAu31_YJU",
-      "id": 2
-    },
-    {
       "caption": "Om Shanthi Oshana",
       "image": "https://upload.wikimedia.org/wikipedia/en/a/ae/Ohm_Shanthi_Oshaana_%282014%29_-_Poster.jpg",
       "embedLink": "https://www.youtube.com/embed/WClb2WeHqNk",
       "id": 3
-    },
-    {
-      "caption": "Manichithrathazhu",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlvrwhp9YR160Y7opz0T4bJMk1PUv7qQ9s7A&s",
-      "embedLink": "https://www.youtube.com/embed/m95cByLJc8I",
-      "id": 4
     },
     {
       "caption": "Classmates",
@@ -47,6 +35,12 @@
       "image": "https://m.media-amazon.com/images/M/MV5BMzAyYzVhNDUtMzY1My00ZGYwLWE4NmEtMTlmMTEyYzI5NDI0XkEyXkFqcGc@._V1_.jpg",
       "embedLink": "https://www.youtube.com/embed/WS4Mev_vRAc",
       "id": 9
+    },
+    {
+      "caption": "Empuran",
+      "image": "https://assetscdn1.paytm.com/images/cinema/L2-745cb8f0-0494-11f0-9a36-f5aa0783f278.jpg",
+      "embedLink": "https://www.youtube.com/embed/YtYAu31_YJU",
+      "id": 2
     }
   ],
   "history": [
@@ -79,12 +73,43 @@
       "url": "https://www.youtube.com/embed/Eo9hZz3oizk",
       "time": "01/04/2025, 02:29:10 pm",
       "id": 6
+    },
+    {
+      "caption": "Bangalore Days",
+      "url": "https://www.youtube.com/embed/WS4Mev_vRAc",
+      "time": "03/04/2025, 02:14:25 pm",
+      "id": 7
+    },
+    {
+      "caption": "Bangalore Days",
+      "url": "https://www.youtube.com/embed/WS4Mev_vRAc",
+      "time": "03/04/2025, 02:14:29 pm",
+      "id": 8
+    },
+    {
+      "caption": "Manichithrathazhu",
+      "url": "https://www.youtube.com/embed/m95cByLJc8I",
+      "time": "03/04/2025, 02:14:34 pm",
+      "id": 9
+    },
+    {
+      "caption": "Empuran",
+      "url": "https://www.youtube.com/embed/YtYAu31_YJU",
+      "time": "03/04/2025, 02:15:50 pm",
+      "id": 10
     }
   ],
   "category": [
     {
       "category": "Hin",
-      "allVideos": [],
+      "allVideos": [
+        {
+          "caption": "Empuran",
+          "image": "https://assetscdn1.paytm.com/images/cinema/L2-745cb8f0-0494-11f0-9a36-f5aa0783f278.jpg",
+          "embedLink": "https://www.youtube.com/embed/YtYAu31_YJU",
+          "id": 2
+        }
+      ],
       "id": 1
     },
     {
@@ -99,7 +124,26 @@
     },
     {
       "category": "Hindi Songs",
-      "allVideos": [],
+      "allVideos": [
+        {
+          "caption": "Classmates",
+          "image": "https://m.media-amazon.com/images/M/MV5BZDA4MDc0ZDItNmFmYi00MWFhLTliNjgtNGZjNDUyMzZjOTcxXkEyXkFqcGc@._V1_.jpg",
+          "embedLink": "https://www.youtube.com/embed/v8FKqfTzIzI",
+          "id": 5
+        },
+        {
+          "caption": "Manichithrathazhu",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlvrwhp9YR160Y7opz0T4bJMk1PUv7qQ9s7A&s",
+          "embedLink": "https://www.youtube.com/embed/m95cByLJc8I",
+          "id": 4
+        },
+        {
+          "caption": "Bangalore Days",
+          "image": "https://m.media-amazon.com/images/M/MV5BMzAyYzVhNDUtMzY1My00ZGYwLWE4NmEtMTlmMTEyYzI5NDI0XkEyXkFqcGc@._V1_.jpg",
+          "embedLink": "https://www.youtube.com/embed/WS4Mev_vRAc",
+          "id": 9
+        }
+      ],
       "id": 4
     }
   ]
