@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCartShopping, faHeart, faBars } from "@fortawesome/free-solid-svg-icons"
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 function Header() {
   const [status, setStatus] = useState(false)
+  const wishlistArray = useSelector((state) => state.wishlistReducer) 
   const handleStatus = () => {
     setStatus(!status)
   }
@@ -19,7 +21,7 @@ function Header() {
         {status &&
           <ul className='flex md:hidden ms-auto mt-5'>
             <li>
-              <Link to={'/wishlist'}><button className='border border-white rounded px-6 py-3 text-white hover:bg-white hover:text-violet-900'><FontAwesomeIcon className='me-2' icon={faHeart} style={{ color: "#ff3d3d", }} />Wish List<span className='rounded bg-gray-100 text-gray-600 px-2  ms-2'>1</span></button></Link>
+              <Link to={'/wishlist'}><button className='border border-white rounded px-6 py-3 text-white hover:bg-white hover:text-violet-900'><FontAwesomeIcon className='me-2' icon={faHeart} style={{ color: "#ff3d3d", }} />Wish List<span className='rounded bg-gray-100 text-gray-600 px-2  ms-2'>{wishlistArray?.length}</span></button></Link>
 
             </li>
             <li className='ms-3'>
@@ -31,7 +33,7 @@ function Header() {
 
         <ul className='md:flex ms-auto hidden'>
         <li>
-              <Link to={'/wishlist'}><button className='border border-white rounded px-6 py-3 text-white hover:bg-white hover:text-violet-900'><FontAwesomeIcon className='me-2' icon={faHeart} style={{ color: "#ff3d3d", }} />Wish List<span className='rounded bg-gray-100 text-gray-600 px-2 py-2 ms-2'>1</span></button></Link>
+              <Link to={'/wishlist'}><button className='border border-white rounded px-6 py-3 text-white hover:bg-white hover:text-violet-900'><FontAwesomeIcon className='me-2' icon={faHeart} style={{ color: "#ff3d3d", }} />Wish List<span className='rounded bg-gray-100 text-gray-600 px-2 py-2 ms-2'>{wishlistArray?.length}</span></button></Link>
 
             </li>
             <li className='ms-3'>

@@ -2,12 +2,18 @@ import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 function Cart() {
+
+  const cartArray = useSelector((state) => state.cartReducer)
+  console.log(cartArray);
+  
   return (
 
 
     <>
+    {/* {cartArray.length>0 ? : } */}
     <h1 className='text-center text-violet-900 mt-10 text-4xl mb-5'>Cart</h1>
     <div className='md:p-10 md:grid grid-cols-[2fr_1fr] gap-4'>
       <div className='px-10 overflow-x-auto'>
