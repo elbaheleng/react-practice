@@ -7,12 +7,13 @@ import { useSelector } from 'react-redux'
 function Header() {
   const [status, setStatus] = useState(false)
   const wishlistArray = useSelector((state) => state.wishlistReducer) 
+  const cartArray = useSelector((state) => state.cartReducer)
   const handleStatus = () => {
     setStatus(!status)
   }
   return (
     <>
-      <nav className='bg-violet-800 py-6 px-5 md:flex'>
+      <nav className='bg-violet-800 py-6 px-5 md:flex fixed w-full' style={{top:"0px"}}>
         <div className="flex">
           <Link to={'/'}> <h1 className='text-white text-3xl'> <FontAwesomeIcon className='me-3' icon={faCartShopping} />Ecart </h1> </Link>
           <button onClick={handleStatus} className='text-white border border-white rounded p-3 ms-auto md:hidden'><FontAwesomeIcon icon={faBars} /></button>
@@ -25,7 +26,7 @@ function Header() {
 
             </li>
             <li className='ms-3'>
-              <Link to={'/cart'}><button className='border border-white rounded px-6 py-3 text-white hover:bg-white hover:text-violet-900'><FontAwesomeIcon className='me-1' icon={faCartShopping} style={{ color: "#108807", }} />Cart<span className='rounded bg-gray-100 text-gray-600 px-2 ms-2'>1</span></button></Link>
+              <Link to={'/cart'}><button className='border border-white rounded px-6 py-3 text-white hover:bg-white hover:text-violet-900'><FontAwesomeIcon className='me-1' icon={faCartShopping} style={{ color: "#108807", }} />Cart<span className='rounded bg-gray-100 text-gray-600 px-2 ms-2'>{cartArray?.length}</span></button></Link>
 
             </li>
           </ul>
@@ -37,7 +38,7 @@ function Header() {
 
             </li>
             <li className='ms-3'>
-              <Link to={'/cart'}><button className='border border-white rounded px-6 py-3 text-white hover:bg-white hover:text-violet-900'><FontAwesomeIcon className='me-1' icon={faCartShopping} style={{ color: "#108807", }} />Cart<span className='rounded bg-gray-100 text-gray-600 px-2 py-2 ms-2'>1</span></button></Link>
+              <Link to={'/cart'}><button className='border border-white rounded px-6 py-3 text-white hover:bg-white hover:text-violet-900'><FontAwesomeIcon className='me-1' icon={faCartShopping} style={{ color: "#108807", }} />Cart<span className='rounded bg-gray-100 text-gray-600 px-2 py-2 ms-2'>{cartArray?.length}</span></button></Link>
 
             </li>
         </ul>

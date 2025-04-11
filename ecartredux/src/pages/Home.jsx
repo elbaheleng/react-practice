@@ -4,6 +4,7 @@ import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons"
 import useFetch from '../hooks/useFetch'
 import { useDispatch } from 'react-redux'
 import { addWishList } from '../redux/slice/wishlistSlice'
+import { addToCart } from '../redux/slice/cartSlice'
 
 function Home() {
   const data = useFetch('https://dummyjson.com/products')
@@ -13,7 +14,7 @@ function Home() {
 
   return (
     <>
-      <div className='md:grid grid-cols-4 gap-4 mb-5'>
+      <div className='md:grid grid-cols-4 gap-4 mb-5 mt-24'>
 
         {data.length > 0 ?
           data?.map((item, index) => (
@@ -25,7 +26,7 @@ function Home() {
                 <p className='text-center mt-4'>Price: <span className='text-violet-900'>${item?.price}</span></p>
                 <div className='flex justify-between mt-3'>
                   <button><FontAwesomeIcon onClick={()=>dispatch(addWishList(item))} className='text-white bg-red-900 p-2 rounded hover:bg-white  hover:border hover:border-red-900 hover:text-red-900' icon={faHeart} /></button>
-                  <button><FontAwesomeIcon className='text-white bg-green-900 p-2 rounded hover:bg-white hover:border hover:border-green-900 hover:text-green-900' icon={faCartShopping} /></button>
+                  <button><FontAwesomeIcon  onClick={()=>dispatch(addToCart(item))} className='text-white bg-green-900 p-2 rounded hover:bg-white hover:border hover:border-green-900 hover:text-green-900' icon={faCartShopping} /></button>
                 </div>
               </div>
             </div>)) :
