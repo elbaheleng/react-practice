@@ -24,7 +24,7 @@ function Header() {
                         <button className='border border-black rounded px-3 py-2'><FontAwesomeIcon className='me-2' icon={faUser} />
                             Login</button>
                     </Link>
-                    <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" style={{ width: "40px" }} alt="" />
+                    {/* <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" style={{ width: "40px" }} alt="" /> */}
 
                 </div>
             </div>
@@ -35,13 +35,13 @@ function Header() {
                         <button className='border border-white rounded px-3 py-2'><FontAwesomeIcon className='me-2' icon={faUser} />
                             Login</button>
                     </Link>
-                    <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" className='me-2' style={{ width: "40px" }} alt="" />
+                    {/* <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" className='me-2' style={{ width: "40px" }} alt="" /> */}
                 </div>
                 <ul className={status ? 'md:flex' : 'md:flex justify-center hidden'}>
-                    <li className='mx-4 mt-2'>Home</li>
-                    <li className='mx-4 mt-2'>Books</li>
-                    <li className='mx-4 mt-2'>Careers</li>
-                    <li className='mx-4 mt-2'>Contact</li>
+                    <Link to={'/'}><li className='mx-4 mt-2'>Home</li></Link>
+                    <Link to={'/all-Books'}><li className='mx-4 mt-2'>Books</li></Link>
+                    <Link to={'/careers'}><li className='mx-4 mt-2'>Careers</li></Link>
+                    <Link to={'/contact'}><li className='mx-4 mt-2'>Contact</li></Link>
                 </ul>
             </nav>
         </>
