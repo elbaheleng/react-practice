@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBook, faGear, faHouse, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faGear, faHouse, faShoppingBag, faBars } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -10,6 +10,8 @@ function SidebarAdmin() {
     const [BookStatus, setBookStatus] = useState(false)
     const [CareersStatus, setCareerStatus] = useState(false)
     const [SettingsStatus, setSettingsStatus] = useState(false)
+    const [SidebarStatus, setSidebarsStatus] = useState(false)
+    
 
     const navigate = useNavigate()
     const filter = (data) => {
@@ -55,8 +57,9 @@ function SidebarAdmin() {
                 <div className='flex flex-col justify-center items-center'>
                     <img src="https://cdn-icons-png.freepik.com/512/8742/8742495.png" alt="no image" style={{ height: "150px", width: "150px" }} />
                     <h3 className='text-xl mt-5'>Username</h3>
+                    <div className='md:hidden'><FontAwesomeIcon onClick={()=>setSidebarsStatus(!SidebarStatus)} icon={faBars} className='fa-2x mt-3 text-blue-600 ' /></div>
                 </div>
-                <div className='my-5'>
+                <div className={SidebarStatus ?'my-5':'my-5 hidden md:block'}>
                     <div className='mb-3'>
                         <input type="radio" id='home' name='filter' readOnly checked={HomeStatus} />
                         <label htmlFor="home" className='ms-3' onClick={() => filter('home')}> <FontAwesomeIcon icon={faHouse} className='me-2' />Home</label>

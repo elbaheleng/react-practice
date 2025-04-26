@@ -17,7 +17,7 @@ function AdminHome() {
         <div className='p-10'>
           <div className='md:grid grid-cols-3'>
             <div className=' px-5'>
-              <div className='bg-blue-900 p-3 flex justify-evenly text-white rounded'>
+              <div className='bg-blue-900 p-3 flex justify-evenly text-white rounded mb-3'>
                 <FontAwesomeIcon icon={faBook} className='fa-3x' />
                 <div className='text-center px-3'>
                   <h1 className='text-md'>Total Number of Books</h1>
@@ -26,7 +26,7 @@ function AdminHome() {
               </div>
             </div>
             <div className=' px-5'>
-              <div className='bg-green-900 p-3 flex justify-evenly text-white rounded'>
+              <div className='bg-green-900 p-3 flex justify-evenly text-white rounded mb-3'>
                 <FontAwesomeIcon icon={faUsers} className='fa-3x' />
                 <div className='text-center px-3'>
                   <h1 className='text-md'>Total Number of Users</h1>
@@ -35,7 +35,7 @@ function AdminHome() {
               </div>
             </div>
             <div className=' px-5'>
-              <div className='bg-amber-900 p-3 flex justify-evenly text-white rounded'>
+              <div className='bg-amber-900 p-3 flex justify-evenly text-white rounded mb-3'>
                 <FontAwesomeIcon icon={faUserTie} className='fa-3x' />
                 <div className='text-center px-3'>
                   <h1 className='text-md'>Total Number of Employees</h1>
