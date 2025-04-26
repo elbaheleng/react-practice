@@ -29,7 +29,7 @@ function Header() {
                     {/* dropdown */}
                     <div className="relative inline-block text-left">
                         <div>
-                            <button type="button" onClick={()=>setDropdownStatus(!dropdownStatus)} class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            <button type="button" onClick={()=>setDropdownStatus(!dropdownStatus)} className="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
                                 <img src="https://cdn-icons-png.freepik.com/512/8742/8742495.png" className='mx-2' style={{ width: "40px" }} alt="" />
                             </button>
                         </div>
@@ -59,7 +59,7 @@ function Header() {
                      {/* dropdown */}
                      <div className="relative inline-block text-left">
                         <div>
-                            <button type="button" onClick={()=>setDropdownStatus(!dropdownStatus)} class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            <button type="button" onClick={()=>setDropdownStatus(!dropdownStatus)} className="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
                                 <img src="https://cdn-icons-png.freepik.com/512/8742/8742495.png" className='mx-2' style={{ width: "40px" }} alt="" />
                             </button>
                         </div>
