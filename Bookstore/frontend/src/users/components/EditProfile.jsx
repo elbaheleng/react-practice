@@ -21,10 +21,11 @@ function EditProfile() {
           </div>
           <div className='flex justify-center items-center flex-col'>
             <label htmlFor="profilefile" className='mt-5'>
-              <input type="file" id='profilefile' style={{ display: "none" }} />
-              <img className='z-52' src="https://cdn-icons-png.freepik.com/512/8742/8742495.png" alt="no image" style={{ height: "150px", width: "150px" }} />
-              <div className='bg-yellow-300 z-53 text-white py-3 px-4 rounded' style={{marginLeft:'135px', marginTop:'-50px'}}><FontAwesomeIcon icon={faPenToSquare} /></div>
+              <input id='profilefile' type="file" style={{ display: 'none' }} />
+              <img className='z-52' src="https://cdn-icons-png.freepik.com/512/8742/8742495.png" alt="no image" style={{ width: '150px', height: '150px'}} />
+            <div className='bg-yellow-300 text-white z-53 fixed rounded py-2 px-3' style={{marginLeft:'120px', marginTop:'-50px'}}><FontAwesomeIcon icon={faPenToSquare}/></div>
             </label>
+
             <div className="mb-3 mt-5 w-full px-5">
               <input type="text" placeholder='Username' className='w-full border border-gray-300 placeholder-gray-200 p-2 rounded' />
             </div>

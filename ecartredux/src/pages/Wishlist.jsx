@@ -19,8 +19,6 @@ function Wishlist() {
     <>
 
       <h1 className='text-center text-violet-900 mt-32 text-4xl'>Wishlist</h1>
-
-
       {wishlistArray.length > 0 ?
         <div className='md:grid grid-cols-4 gap-4 mb-5'>
           {wishlistArray?.map((item, index) => (

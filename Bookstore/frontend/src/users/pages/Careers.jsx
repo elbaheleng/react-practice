@@ -18,7 +18,7 @@ function Careers() {
                 <h1 className='text-2xl'>Current Openings</h1>
                 <div className='flex justify-center items-center m-5'>
                     <input placeholder='Job Title' className='border border-gray-400 px-5 py-2 w-96 placeholder-gray-400' type="text" />
-                    <button className='bg-green-800 text-white px-5 py-2 border border-blue-800 hover:bg-white hover:text-blue-800'>Search</button>
+                    <button className='bg-green-800 text-white px-5 py-2 border border-green-800 hover:bg-white hover:text-green-800'>Search</button>
                 </div>
             </div>
 
